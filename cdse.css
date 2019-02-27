@@ -1,10 +1,13 @@
 <style>
+       @import url('https://fonts.googleapis.com/css?family=Quicksand:500');
 
-       div.bb {background-color: #fcf2f2;
-               border-left: 15px solid #dfb5b4;
+       div.bb {background-color: #e0e0eb;
+               border-left: 15px solid #cc6699;
                margin: -0.5em;
                padding: 1em 0.5em 1em 1em;
-              }
+               font-family: 'Quicksand', sans-serif;
+               font-size: 14px;
+               }
 
        pre.bb {padding: 1em;
                margin-bottom: 0px;
@@ -21,8 +24,8 @@
        h1.bbh, h2.bbh, h3.bbh {margin-top: 10px}
 
        a:link.up_button {padding: 3px;
-                         border: 1px solid #dfb5b4;
-                         background-color: #fcf2f2;
+                         border: 2px solid;
+                         background-color: #e0e0eb;
                          margin: 3px 0px 0px 0px;
                          text-align: center;
                          text-decoration: none;
