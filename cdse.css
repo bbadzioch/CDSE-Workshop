@@ -25,6 +25,7 @@
 
        a:link.up_button {padding: 3px;
                          border: 2px solid;
+                         border-radius: 4px;
                          background-color: #e0e0eb;
                          margin: 3px 0px 0px 0px;
                          text-align: center;
