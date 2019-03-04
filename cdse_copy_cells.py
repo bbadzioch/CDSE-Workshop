@@ -27,10 +27,11 @@ def C(arg):
     fname = args.file
     
     # numbered notebooks
-    numbered_notebooks = ["CDSE_Python_1_Intro.ipynb",
-                          "CDSE_Python_2_Soup.ipynb",
-                          "CDSE_Python_3_Numpy.ipynb",
-                          "CDSE_Python_4_Pandas.ipynb"
+    numbered_notebooks = ["CDSE_Python_Test.ipynb",
+                          "CDSE_Python1.ipynb",
+                          "CDSE_Python2.ipynb",
+                          "CDSE_Python3.ipynb",
+                          "CDSE_Python4.ipynb",
                           ]
     
     #medadata file for storing source notebook name and cells number
@@ -57,10 +58,10 @@ def C(arg):
         try:
             # check if numbered notebook
             nb_num = int(fname) 
-            if nb_num in range(1, len(numbered_notebooks) + 1):
-                fname = numbered_notebooks[nb_num -1]
+            if nb_num in range(len(numbered_notebooks)):
+                fname = numbered_notebooks[nb_num]
             else:
-                print(f"Error: No such notebook. Available notebooks 1-{len(numbered_notebooks)}.")
+                print(f"Error: No such notebook. Available notebooks 0-{len(numbered_notebooks)-1}.")
                 return
         except ValueError:
             pass    
