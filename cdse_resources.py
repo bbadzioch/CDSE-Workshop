@@ -74,5 +74,5 @@ workshop Piazza page:
 piazza.com/buffalo/spring2019/cdsepython''')
 else:
     cc = importlib.import_module(local_dir + '.' +  "cdse_copy_cells")
-    s = f"0 -f {local_dir}/{flist[1]}"
+    s = f"0 -f0"
     cc.C(s)
