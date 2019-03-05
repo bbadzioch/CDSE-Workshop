@@ -1,5 +1,5 @@
 import requests
-from os import getcwd, makedirs
+from os import getcwd, makedirs, chdir
 from os.path import join, isdir, isfile
 import importlib
 
@@ -12,7 +12,7 @@ flist = ["cdse_copy_cells.py",
          "CDSE_Python4.ipynb",
          "__init__.py"
         ]
-         
+
 local_dir = "CDSE2019_Python_Files"
 
 def get_resources():
@@ -24,17 +24,17 @@ def get_resources():
     cwd = getcwd()
     local_path = join(cwd,  local_dir)
     file_missing = False
-    
+
     if not isdir(local_path):
         print(f"Creating directory {local_dir:25}", end="")
-        try: 
+        try:
             makedirs(local_path)
             print("Done.")
         except:
             print("FAILED")
             file_missing = True
             return file_missing
-  
+
 
     for fname in flist:
         print(f"Downloading {fname:32}", end="")
@@ -58,21 +58,20 @@ def get_resources():
 
     print("Resources download finished.")
     return file_missing
- 
+
 
 file_missing = get_resources()
 
 if file_missing:
     print('''
-    
-Some files could not be downloaded. Please check your internet 
-connection and try again. If this problem persists please post 
-a message with a screenshot of this notebook on the CDSE Python 
-workshop Piazza page: 
-    
+
+Some files could not be downloaded. Please check your internet
+connection and try again. If this problem persists please post
+a message with a screenshot of this notebook on the CDSE Python
+workshop Piazza page:
+
 piazza.com/buffalo/spring2019/cdsepython''')
 else:
-    cc = importlib.import_module(local_dir + '.' +  "cdse_copy_cells")    
+    chdir(local_dir)
+    cc = importlib.import_module("cdse_copy_cells")
     cc.C("0 -f0")
-          
-          
