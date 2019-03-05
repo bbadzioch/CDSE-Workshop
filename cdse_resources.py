@@ -1,5 +1,5 @@
 import requests
-from os import getcwd, makedirs
+from os import getcwd, makedirs, chdir
 from os.path import join, isdir, isfile
 import importlib
 
@@ -13,7 +13,7 @@ flist = ["cdse_copy_cells.py",
          "__init__.py"
         ]
 
-local_dir = "CDSE2019_Python_Files"
+local_dir = "CDSE_Python_Files"
 
 def get_resources():
 
@@ -29,6 +29,7 @@ def get_resources():
         print(f"Creating directory {local_dir:25}", end="")
         try:
             makedirs(local_path)
+            chdir(local_dir)
             print("Done.")
         except:
             print("FAILED")
@@ -52,7 +53,7 @@ def get_resources():
                 print(f"Status code: {r.status_code}.")
             continue
 
-        with open(join(local_dir, fname) , "wb") as f:
+        with open(fname , "wb") as f:
             f.write(r.content)
         print("Done.")
 
