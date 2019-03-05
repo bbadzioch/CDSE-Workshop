@@ -1,5 +1,5 @@
 import requests
-from os import getcwd, makedirs, chdir
+from os import getcwd, makedirs
 from os.path import join, isdir, isfile
 import importlib
 
@@ -72,6 +72,5 @@ workshop Piazza page:
 
 piazza.com/buffalo/spring2019/cdsepython''')
 else:
-    chdir(local_dir)
-    cc = importlib.import_module("cdse_copy_cells")
-    cc.C("0 -f0")
+    cc = importlib.import_module(local_dir + '.' +  "cdse_copy_cells")
+    cc.C("0 -f {local_dir}/{flist[1]}")
