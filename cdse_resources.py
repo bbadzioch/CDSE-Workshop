@@ -29,13 +29,13 @@ def get_resources():
         print(f"Creating directory {local_dir:25}", end="")
         try:
             makedirs(local_path)
-            chdir(local_dir)
             print("Done.")
         except:
             print("FAILED")
             file_missing = True
             return file_missing
 
+    chdir(local_dir)
 
     for fname in flist:
         print(f"Downloading {fname:32}", end="")
@@ -75,4 +75,4 @@ piazza.com/buffalo/spring2019/cdsepython''')
 else:
     cc = importlib.import_module("cdse_copy_cells")
     s = f"0 -f0"
-    cc.C(s)
+    cc.C("0 -f0")
