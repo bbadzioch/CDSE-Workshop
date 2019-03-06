@@ -5,11 +5,11 @@ import importlib
 
 url_root = "https://raw.githubusercontent.com/bbadzioch/CDSE-Workshop/master/"
 flist = ["cdse_copy_cells.py",
-         "CDSE_Python_Test.ipynb",
-         "CDSE_Python1.ipynb",
-         "CDSE_Python2.ipynb",
-         "CDSE_Python3.ipynb",
-         "CDSE_Python4.ipynb",
+         "CDSE0.ipynb",
+         "CDSE1.ipynb",
+         "CDSE2.ipynb",
+         "CDSE3.ipynb",
+         "CDSE4.ipynb",
          "__init__.py"
         ]
 
