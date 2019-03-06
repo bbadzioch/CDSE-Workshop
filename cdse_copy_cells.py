@@ -14,7 +14,7 @@ import os
 
 @register_line_magic
 @magic_arguments()
-@argument('-f', '--file', help='name or number of the source notebook', default=1)
+@argument('-f', '--file', help='name or number of the source notebook', default=None)
 @argument('n', type=int, help='cell number', default = None, nargs='?')
 def C(arg):
     '''
