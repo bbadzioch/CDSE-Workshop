@@ -25,6 +25,9 @@ def C(arg):
     args = parse_argstring(C, arg)
     n = args.n
     fname = args.file
+    # if the source notebook file name conteins spaces if must be given in quotes which we then need to remove:
+    if fname != None:
+        fname = fname.replace('"', "").replace("'", "").replace("\ ", " ")
 
     # numbered notebooks
     numbered_notebooks = ["CDSE0.ipynb",
@@ -41,7 +44,8 @@ def C(arg):
     default_notebook = numbered_notebooks[0]
 
 
-    # get notebook file name and cell number from metadata or initialize defaults
+    # get notebook file name and cell number from metadata
+    # id the metadata file does not exist initialize it with defaults
     try:
         with open(metadata_f, 'r') as f:
             meta = json.load(f)
@@ -56,7 +60,6 @@ def C(arg):
     # check if numbered notebook, if so get the file name
     if fname != None:
         try:
-            # check if numbered notebook
             nb_num = int(fname)
             if nb_num in range(len(numbered_notebooks)):
                 fname = numbered_notebooks[nb_num]
@@ -105,7 +108,7 @@ def C(arg):
         txt = src_txt + idx
     else:
         idx = '#Cell '+ str(n) + '\n'
-        # for code cells with magics:
+        # in code cells with magic cell label must be inserted after the magic
         if src_txt[0] == '%':
               line_list = src_txt.split('\n')
               line_list.insert(1, idx.strip())
@@ -113,7 +116,7 @@ def C(arg):
         else:
               txt = idx + src_txt
 
-    # render cell if markdown
+    # fot the JavaScript: render cell if markdown
     if cell['cell_type'] == "markdown":
         tm = "Jupyter.notebook.to_markdown(t_index);\n"
     else:
