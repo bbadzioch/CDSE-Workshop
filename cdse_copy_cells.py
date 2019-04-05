@@ -74,7 +74,7 @@ def C(arg):
 
     # read the notebook file
     try:
-        with open(fname) as foo:
+        with open(fname, encoding="utf8", errors="ignore") as foo:
             nb = foo.read()
     except FileNotFoundError:
         print(f"Error: File {fname} not found.")
